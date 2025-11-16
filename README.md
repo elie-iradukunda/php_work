@@ -26,3 +26,5 @@
   - Registration checks required fields, email format, password confirmation, and uniqueness of username/email.
   - Books CRUD validates required fields (title, author).
 - User‑supplied data is escaped using `htmlspecialchars()` before being rendered in HTML, which helps prevent cross‑site scripting (XSS).
+# php_work
+Php work
