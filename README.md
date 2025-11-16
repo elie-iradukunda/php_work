@@ -26,5 +26,61 @@
   - Registration checks required fields, email format, password confirmation, and uniqueness of username/email.
   - Books CRUD validates required fields (title, author).
 - User‑supplied data is escaped using `htmlspecialchars()` before being rendered in HTML, which helps prevent cross‑site scripting (XSS).
+
+## Screenshots
+
+> Note: update the image paths (`screenshots/...`) to match the actual filenames in your project.
+
+### Login page
+
+![Login page](screenshots/login.png)
+
+The login screen shows the secure entry point to the system:
+
+- Uses PHP sessions to authenticate users and call `session_regenerate_id(true)` on success.
+- Demonstrates the **"Remember me"** checkbox which stores the username in a cookie (`remember_username`) so the field is pre‑filled on the next visit.
+- Access to the protected CRUD dashboard is only possible after successful login.
+
+### Register page
+
+![Register page](screenshots/register.png)
+
+The registration screen demonstrates:
+
+- Server‑side validation of username, email, password, and password confirmation.
+- Email format validation and uniqueness checks for both username and email.
+- Secure password storage using `password_hash()` before inserting into the `users` table.
+- Automatic login after registration using PHP sessions.
+
+### Library dashboard (Books list)
+
+![Books dashboard](screenshots/books-dashboard.png)
+
+This page is the main protected CRUD dashboard:
+
+- Displays the logged‑in user via `$currentUser['username']` at the top.
+- Lists all books from the database and shows **Edit**/**Delete** actions.
+- Is only accessible when a valid session exists (`auth.php` guard), proving that CRUD operations are not public.
+
+### Add Book page
+
+![Add book](screenshots/books-create.png)
+
+The add‑book form shows:
+
+- A protected page that requires an authenticated session via `auth.php`.
+- Server‑side validation for required fields (`title`, `author`).
+- Insertion of new records using PDO prepared statements to prevent SQL injection.
+
+### Edit Book page
+
+![Edit book](screenshots/books-edit.png)
+
+The edit‑book form demonstrates:
+
+- Fetching an existing book via prepared statements and populating the form.
+- Updating the record securely with prepared statements.
+- Continued protection by `auth.php`, ensuring that only logged‑in users can modify existing data.
+
 # php_work
 Php work

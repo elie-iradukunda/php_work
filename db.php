@@ -1,10 +1,10 @@
 <?php
 // db.php
 // Default XAMPP MySQL settings: host 127.0.0.1, port 3306, user root, empty password.
-$host = '127.0.0.1';
+$host = 'localhost';
 $db   = 'crud_app';
 $user = 'root';
-$pass = ''; // change if you set a MySQL root password
+$pass = '';
 $charset = 'utf8mb4';
 
 // If your MySQL runs on a non-default port, add ;port=PORT_NUMBER here.
